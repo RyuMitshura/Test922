@@ -6,8 +6,6 @@ conn = sqlite3.connect('School.db')
 c = conn.cursor()
 
 #Create a Table
-import sqlite3
-
 conn = sqlite3.connect('School.db')
 c = conn.cursor()
 
