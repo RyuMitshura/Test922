@@ -16,8 +16,11 @@ c.execute('''CREATE TABLE IF NOT EXISTS student (
              email TEXT
            )''')
 
-# Insert data with proper quotes and syntax
-c.execute("INSERT INTO student VALUES ('John', 'Mem', 'jhonmem@gmail.com')")
+lots_student =[('Clent', 'Zamora', 'ClentZamora@gmail.com'),
+                ('julius', 'jordan', 'juliusjordan@gmail.com'),
+                ('klied', 'jericho', 'kliedjericho@gmail.com')]
+
+c.executemany("INSERT INTO student VALUES(?,?,?)", lots_student)
 
 
 #Commit our code
