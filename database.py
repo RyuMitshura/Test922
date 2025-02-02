@@ -9,19 +9,16 @@ c = conn.cursor()
 conn = sqlite3.connect('School.db')
 c = conn.cursor()
 
-# Create the table first (define columns and data types)
-c.execute('''CREATE TABLE IF NOT EXISTS student (
-             name TEXT,
-             department TEXT,
-             email TEXT
-           )''')
+#Query the Database
+c.execute('SELECT rowid,* FROM student')
+items = c.fetchall()
 
-lots_student =[('Clent', 'Zamora', 'ClentZamora@gmail.com'),
-                ('julius', 'jordan', 'juliusjordan@gmail.com'),
-                ('klied', 'jericho', 'kliedjericho@gmail.com')]
+for item in items:
+	print(item)
 
-c.executemany("INSERT INTO student VALUES(?,?,?)", lots_student)
-
+#c.fetch()
+#c.fetchmany(3)no.of fetch
+#c.fetchall()
 
 #Commit our code
 conn.commit()
